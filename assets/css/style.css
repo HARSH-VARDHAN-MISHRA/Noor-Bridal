@@ -147,7 +147,7 @@ header .head ul a.icon:hover{
         width: 100%;
         left: 0;
         right: 0;
-        top: -400%;
+        top: -500%;
         transition: 0.5s;
     }
     header .head nav.active{
@@ -165,5 +165,12 @@ header .head ul a.icon:hover{
     }
     header .head ul a.icon{
         border-color: var(--color-primary-dark);
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    header .head .logo img{
+        height: 80px;
+        object-fit: contain;
     }
   }
