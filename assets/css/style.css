@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+:root {
+    --color-primary : #e3b857;
+    --color-primary-dark : #e3b857;
+    --color-para: #d8d8d8;
+
+}
+body{
+    background-color: #000000;
+    color: white;
+}
+/* --- Universal Styling ---  */
+ol,
+ul {
+    padding-left: 0rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+p {
+    color: var(--color-para);
+    margin-bottom: 0rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ====== Heading =======  */
+
+h1, h2 , h3 , h4 , h5 , h6 {
+    color: var(--color-primary);
+}
+
+.heading {
+    margin: 3rem 0rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.heading-title{
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+.btn-main{
+    color: white;
+    background-color: var(--color-primary-dark);
+    padding: 0.5rem 1.5rem;
+    display: inline-block;
+    font-weight: 500;
+    border-radius: 5px;
+    margin: 1rem 0rem;
+    border: none;
+}
+
+.form-control {
+    background-color: transparent !important;
+}
+
+/* -------- Header ------  */
+header .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+header .head .logo img{
+    height: 120px;
+}
+header .breadcrumb{
+    display: none;
+}
+
+header .head ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 0rem;
+}
+header .head ul li a:hover{
+    color: var(--color-primary);
+}
+header .head ul li a::after{
+    content: '';
+    width:0%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-primary-dark);
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+header .head ul li a:hover::after{
+    width:100%;
+}
+header .head ul a.icon{
+    border: 2px solid var(--color-para);
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+
+}
+header .head ul a.icon:hover{
+    color: var(--color-primary);
+    border-color: var(--color-primary-dark);
+}
+
+
+
+
+
+@media only screen and (max-width: 990px) {
+    header .head{
+        position: relative;
+    }
+    header .head .logo img{
+        height: 100px;
+        object-fit: contain;
+    }
+    header .breadcrumb{
+        display: block;
+        font-size: 1.4rem;
+    }
+    header .head nav{
+        position: absolute;
+        background: white;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: -400%;
+        transition: 0.5s;
+    }
+    header .head nav.active{
+        top: 100%;
+
+    }
+
+    header .head ul{
+        flex-direction: column;
+        align-items: start;
+        padding: 1rem;
+    }
+    header .head ul li a , header .head ul a{
+        color: var(--color-primary);
+    }
+    header .head ul a.icon{
+        border-color: var(--color-primary-dark);
+    }
+  }
