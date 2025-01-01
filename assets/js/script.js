@@ -54,3 +54,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     showStep(currentStep); // Initialize the first step as active
 });
+
+
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function () {
+        // Remove 'selected' class from all cards
+        document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+        
+        // Add 'selected' class to the clicked card
+        this.classList.add('selected');
+        
+        // Enable the "Next" button
+        const nextBtn = document.querySelector('.next-btn');
+        nextBtn.disabled = false;
+
+        // Optionally, store the selected service value
+        const selectedService = this.getAttribute('data-service');
+        console.log(`Selected Service: ${selectedService}`);
+    });
+});
