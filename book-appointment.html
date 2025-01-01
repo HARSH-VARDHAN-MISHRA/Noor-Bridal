@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Noor Bridal</title>
+    <meta property="og:image" content="./assets/images/logo.png">
+    <meta name="author" content="">
+    <meta name="email" content="">
+    <meta name="profile" content="">
+    <meta name="title" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="./assets/images/logo.png">
+    <!-- Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Font Awesome Cdn Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/book-appointment.css">
+</head>
+
+<body>
+
+    <!-- WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=918368035050" target="_blank" class="social-float whatsapp-float">
+        <i class="fa-brands fa-whatsapp social-icon"></i>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/" target="_blank" class="social-float facebook-float">
+        <i class="fa-brands fa-facebook-f social-icon"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/" target="_blank" class="social-float instagram-float">
+        <i class="fa-brands fa-instagram social-icon"></i>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/" target="_blank" class="social-float youtube-float">
+        <i class="fa-brands fa-youtube social-icon"></i>
+    </a>
+
+    <!-- --- Header ----->
+
+    <header>
+        <div class="head container">
+            <div class="logo">
+                <img src="./assets/images/logo.png" alt="LOGO">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./book-appointment.html">Book an Appointment</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                    <li><a href="./our-collection.html">Our Collection</a></li>
+                    <a href="" class="icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </ul>
+            </nav>
+            <div class="breadcrumb">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="my-4">
+        <div class="container">
+            <div class="heading">
+                <h2 class="heading-title mb-5 text-center">BOOK APPOINTMENT</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="container appointmentForm-section">
+            <div class="row">
+                <!-- Left Sidebar -->
+                <div class="col-md-3 mb-2">
+                    <div class="border rounded p-3" style="border-color: var(--color-primary) !important;">
+                        <ul class="list-group">
+                            <li class="list-group-item step-item active" data-step="0">
+                                <i class="fa-solid fa-bars-progress"></i> Service
+                            </li>
+                            <li class="list-group-item step-item" data-step="1">
+                                <i class="fa-solid fa-calendar-days"></i> Date & Time
+                            </li>
+                            <li class="list-group-item step-item" data-step="2">
+                                <i class="fa-solid fa-id-card"></i> Basic Details
+                            </li>
+                            <li class="list-group-item step-item" data-step="3">
+                                <i class="fa-solid fa-clipboard-check"></i> Summary
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-9 mb-2">
+                    <!-- Appointment Form -->
+                    <form id="appointmentForm" class="appointmentForm">
+                        <!-- Step 1: Select Service -->
+                        <div class="form-step active">
+                            <h3 class="mb-4">Select Service</h3>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="card p-3 border">
+                                        <h5>Bridal Look</h5>
+                                        <p>Duration: 2 h</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="card p-3 border">
+                                        <h5>Non-Bridal Look</h5>
+                                        <p>Duration: 1 h</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 border-top">
+                                <button type="button" class="btn btn-primary next-btn">Next: Date & Time</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Date & Time -->
+                        <div class="form-step">
+                            <h3 class="mb-4">Select Date & Time</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <h5>Select Date</h5>
+                                        <div id="calendar" class="calendar-container"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div>
+                                        <h5>Time Slots</h5>
+                                        <button type="button" class="btn btn-outline-secondary me-2">8:00 PM - 9:00 PM</button>
+                                        <button type="button" class="btn btn-outline-secondary">9:00 PM - 10:00 PM</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            
+                            <div class="d-flex justify-content-between mt-4 border-top">
+                                <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
+                                <button type="button" class="btn btn-primary next-btn">Next: Basic Details</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Basic Details -->
+                        <div class="form-step">
+                            <h3 class="mb-4">Basic Details</h3>
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">Firstname</label>
+                                <input type="text" id="firstName" class="form-control"
+                                    placeholder="Enter your firstname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Lastname</label>
+                                <input type="text" id="lastName" class="form-control" placeholder="Enter your lastname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-control"
+                                    placeholder="Enter your email address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phoneNumber" class="form-label">Phone Number</label>
+                                <input type="tel" id="phoneNumber" class="form-control" placeholder="081234 56789">
+                            </div>
+                            <div class="mb-3">
+                                <label for="notes" class="form-label">Note</label>
+                                <textarea id="notes" class="form-control" rows="3"
+                                    placeholder="Enter note details"></textarea>
+                            </div>
+                            <div class="d-flex justify-content-between mt-4 border-top">
+                                <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
+                                <button type="button" class="btn btn-primary next-btn">Next: Summary</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Summary -->
+                        <div class="form-step text-center">
+                            <h3 class="mb-2">Summary</h3>
+                            <p class="text-muted">Your appointment booking summary</p>
+                        
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col-6 text-start">
+                                        <p class="mb-1"><strong>Customer</strong></p>
+                                        <p class="mb-1"><strong>Service</strong></p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="mb-1">Your Madam ji</p>
+                                        <p class="mb-1">Bridal Look</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-6 text-start">
+                                        <p class="mb-1"><strong>Date & Time</strong></p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="mb-1">01 January 2025, 8:00 PM - 9:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="d-flex justify-content-between mt-4 border-top pt-3">
+                                <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
+                                <button type="submit" class="btn btn-success">Confirm Booking</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer  text-light py-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- Logo and Description Section -->
+                <div class="col-md-3 footer-section mb-4 mb-md-0">
+                    <img src="./assets/images/logo.png" alt="LOGO" class="footer-logo mb-3 w-50">
+                    <p class="small">
+                        At Noor Bridal, we understand that every woman deserves to feel like royalty on her special
+                        occasions.
+                        That’s why we meticulously design each lehenga with utmost care and attention to detail, using
+                        luxurious
+                        fabrics, intricate embroidery, and stunning embellishments.
+                    </p>
+                </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-3 footer-section mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="./about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="./book-appointment.html" class="text-light text-decoration-none">Book an
+                                Appointment</a></li>
+                        <li><a href="./contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+                        <li><a href="./our-collection.html" class="text-light text-decoration-none">Our Collection</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Recent Post Section -->
+                <div class="col-md-3 footer-section mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Recent Posts</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="./about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="./book-appointment.html" class="text-light text-decoration-none">Book an
+                                Appointment</a></li>
+                        <li><a href="./contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+                        <li><a href="./our-collection.html" class="text-light text-decoration-none">Our Collection</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Social Media Section -->
+                <div class="col-md-3 footer-section">
+                    <h4 class="text-uppercase mb-3">Connect with us</h4>
+                    <div class="social-icons d-flex gap-3">
+                        <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-light fs-4"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="text-light fs-4"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom text-center mt-4">
+                <p class="mb-0 small">&copy; Noor Bridal 2025 - Created By ER Bilal Ehemad</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Script  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <!-- Include Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize Flatpickr in inline mode
+            flatpickr("#calendar", {
+                inline: true, // Always display the calendar
+                minDate: "today", // Disable past dates
+                defaultDate: "today", // Pre-select today's date
+                onChange: function (selectedDates, dateStr, instance) {
+                    console.log("Selected Date: ", dateStr); // Use this to handle selected date
+                },
+            });
+        });
+    </script>
+
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
