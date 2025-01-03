@@ -233,7 +233,7 @@ header .head ul a.icon:hover {
 
 .whatsapp-float {
     background-color: #25d366;
-    bottom: 140px;
+    bottom: 100px;
 }
 
 .whatsapp-float::before {
