@@ -78,7 +78,7 @@ h6 {
 
 .form-control {
     background-color: transparent !important;
-    color: white !important;
+    /* color: white !important; */
 }
 
 /* -------- Header ------  */

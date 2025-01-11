@@ -9,11 +9,13 @@
     border-radius: 4px;
 }
 .form-step.active .row{
-    min-height: 30vh;
+    /* min-height: 30vh; */
 }
 .time-slot.active {
-    background-color: #007bff;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary-main);
     color: #fff;
+    box-shadow: none;
 }
 .hidden {
     display: none !important;
@@ -23,6 +25,19 @@
 .appointmentForm .border-top{
     border-color: var(--color-primary) !important;
     padding-top: 0.8rem !important;
+}
+
+.appointmentForm-section .form-label{
+    color: #0e0e0e;
+}
+.appointmentForm-section .single-slot{
+    margin-bottom: 1rem;
+}
+.appointmentForm-section .single-slot .timing{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
 }
 
 

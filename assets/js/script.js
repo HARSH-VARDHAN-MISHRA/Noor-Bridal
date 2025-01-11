@@ -1,12 +1,12 @@
 const navbarNav = document.querySelector("header nav");
 const toogleMenuBtn = document.querySelector("header .head .breadcrumb");
 
-toogleMenuBtn.addEventListener("click",()=>{
-    if(navbarNav.classList.contains("active")){
+toogleMenuBtn.addEventListener("click", () => {
+    if (navbarNav.classList.contains("active")) {
         navbarNav.classList.remove("active")
         toogleMenuBtn.innerHTML = `<i class="fa-solid fa-bars-staggered"></i>`
     }
-    else{
+    else {
         navbarNav.classList.add("active")
         toogleMenuBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`
     }
@@ -60,10 +60,10 @@ toogleMenuBtn.addEventListener("click",()=>{
 //     card.addEventListener('click', function () {
 //         // Remove 'selected' class from all cards
 //         document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
-        
+
 //         // Add 'selected' class to the clicked card
 //         this.classList.add('selected');
-        
+
 //         // Enable the "Next" button
 //         const nextBtn = document.querySelector('.next-btn');
 //         nextBtn.disabled = false;
@@ -97,6 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
         steps.forEach((step, index) => {
             step.classList.toggle("active", index === currentStep);
         });
+
+        // If we've reached the summary step (last step), update the summary content
+        if (currentStep === steps.length - 1) {
+            updateSummary();
+        }
     };
 
     // Handle "Go Back"
@@ -137,6 +142,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
+
+    // Set the default value of the date input to today's date
+    appointmentDate.value = today;
+
     // Date selection
     appointmentDate.addEventListener("change", (e) => {
         appointmentData.date = e.target.value;
@@ -170,6 +181,57 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Appointment Data:", appointmentData);
         alert("Booking Confirmed!");
     });
+
+    const updateSummary = () => {
+        summaryContent.innerHTML = `
+        <p class="text-muted">Your appointment booking summary</p>
+
+        <div class="mt-4">
+        <div class="row">
+            <div class="col-6 text-start">
+                <p class="mb-1"><strong>Customer</strong></p>
+                <p class="mb-1"><strong>Service</strong></p>
+            </div>
+            <div class="col-6 text-end">
+                <p class="mb-1">${appointmentData.firstName} ${appointmentData?.lastName}</p>
+                <p class="mb-1">${appointmentData.service}</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 text-start">
+                <p class="mb-1"><strong>Date & Time</strong></p>
+            </div>
+            <div class="col-6 text-end">
+                <p class="mb-1">${appointmentData.date}, ${appointmentData.time}</p>
+            </div>
+        </div>
+    </div>
+                                
+    `;
+};
+
+    // <p><strong>Service:</strong> ${appointmentData.service}</p>
+    // <p><strong>Date:</strong> ${appointmentData.date}</p>
+    // <p><strong>Time:</strong> ${appointmentData.time}</p>
+    // <p><strong>Name:</strong> ${appointmentData.firstName} ${appointmentData?.lastName}</p>
+    // <p><strong>Phone:</strong> ${appointmentData.phoneNumber}</p>
+    // <p><strong>Email:</strong> ${appointmentData.email}</p>
+
+    // Sidebar step navigation: When a sidebar item is clicked, navigate to that step
+    stepItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            const stepIndex = parseInt(item.dataset.step);
+            if (stepIndex <= currentStep) {
+                currentStep = stepIndex;
+                updateSteps();
+            }
+        });
+    });
+
+
+
+    // Initial setup
+    updateSteps();
 
 
 
