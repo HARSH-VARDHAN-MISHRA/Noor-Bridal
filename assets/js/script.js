@@ -236,3 +236,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".count");
+  
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-target");
+      const updateCounter = () => {
+        const current = +counter.innerText;
+        const increment = target / 200;
+  
+        if (current < target) {
+          counter.innerText = Math.ceil(current + increment);
+          setTimeout(updateCounter, 10);
+        } else {
+          counter.innerText = target;
+        }
+      };
+  
+      updateCounter();
+    });
+  });
+  
