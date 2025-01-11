@@ -87,162 +87,192 @@
     </header>
 
 
-    <section class="my-4">
-        <div class="container">
-            <div class="heading">
-                <h2 class="heading-title mb-5 text-center">BOOK APPOINTMENT</h2>
+    <div class="bg-white py-3">
+        <section class="my-4">
+            <div class="container">
+                <div class="heading">
+                    <h2 class="heading-title mb-5 text-center">BOOK APPOINTMENT</h2>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    
+        <section class="mb-5 ">
+            <div class="container appointmentForm-section">
+                <div class="row">
+                    <!-- Left Sidebar -->
+                    <div class="col-md-3 mb-2">
+                        <div class="border rounded p-3" style="border-color: var(--color-primary) !important;">
+                            <ul class="list-group">
+                                <li class="list-group-item step-item active" data-step="0">
+                                    <i class="fa-solid fa-bars-progress"></i> Service
+                                </li>
+                                <li class="list-group-item step-item" data-step="1">
+                                    <i class="fa-solid fa-calendar-days"></i> Date & Time
+                                </li>
+                                <li class="list-group-item step-item" data-step="2">
+                                    <i class="fa-solid fa-id-card"></i> Basic Details
+                                </li>
+                                <li class="list-group-item step-item" data-step="3">
+                                    <i class="fa-solid fa-clipboard-check"></i> Summary
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-9 mb-2">
+                        <!-- Appointment Form -->
+                        <form id="appointmentForm" class="appointmentForm">
+                            <!-- Step 1: Select Service -->
+                            <div class="form-step active">
+                                <h3 class="mb-4">Select Service</h3>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card p-3 border service-card" data-service="Bridal Look">
+                                            <h5>Bridal Look</h5>
+                                            <p>Duration: 2 h</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card p-3 border service-card" data-service="Non-Bridal Look">
+                                            <h5>Non-Bridal Look</h5>
+                                            <p>Duration: 1 h</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mt-4 border-top">
+                                    <button type="button" class="btn btn-primary next-btn" disabled>Next: Date & Time</button>
+                                </div>
+                            </div>
+    
+    
+                            <!-- Step 2: Date & Time -->
+                            <div class="form-step">
+                                <h3 class="mb-4">Select Date & Time</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h5>Select Date</h5>
+                                            <div id="calendar" class="calendar-container"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <h5>Time Slots</h5>
 
-    <section class="mb-5">
-        <div class="container appointmentForm-section">
-            <div class="row">
-                <!-- Left Sidebar -->
-                <div class="col-md-3 mb-2">
-                    <div class="border rounded p-3" style="border-color: var(--color-primary) !important;">
-                        <ul class="list-group">
-                            <li class="list-group-item step-item active" data-step="0">
-                                <i class="fa-solid fa-bars-progress"></i> Service
-                            </li>
-                            <li class="list-group-item step-item" data-step="1">
-                                <i class="fa-solid fa-calendar-days"></i> Date & Time
-                            </li>
-                            <li class="list-group-item step-item" data-step="2">
-                                <i class="fa-solid fa-id-card"></i> Basic Details
-                            </li>
-                            <li class="list-group-item step-item" data-step="3">
-                                <i class="fa-solid fa-clipboard-check"></i> Summary
-                            </li>
-                        </ul>
+                                            <div class="single-slot">
+                                                <h6 class="strong">Morning</h6>
+                                                <div class="timing">
+                                                    <button type="button" class="btn btn-outline-secondary">11:00 AM - 12:00  PM</button>
+                                                </div>
+                                            </div>
+                                            <div class="single-slot">
+                                                <h6 class="strong">Afternoon</h6>
+                                                <div class="timing">
+                                                    <button type="button" class="btn btn-outline-secondary">12:00 PM - 1:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary">1:00 PM - 2:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary">2:00 PM - 3:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary">3:00 PM - 4:00  PM</button>
+                                                </div>
+                                            </div>
+                                            <div class="single-slot">
+                                                <h6 class="strong">Evening</h6>
+                                                <div class="timing">
+                                                    <button type="button" class="btn btn-outline-secondary">4:00 PM - 5:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary">5:00 PM - 6:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary">6:00 PM - 7:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary">7:00 PM - 8:00  PM</button>
+                                                </div>
+                                            </div>
+                                            <div class="single-slot">
+                                                <h6 class="strong">Night</h6>
+                                                <div class="timing">
+                                                    <button type="button" class="btn btn-outline-secondary">8:00 PM - 9:00  PM</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+    
+                                <div class="d-flex justify-content-between mt-4 border-top">
+                                    <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
+                                    <button type="button" class="btn btn-primary next-btn">Next: Basic Details</button>
+                                </div>
+                            </div>
+    
+                            <!-- Step 3: Basic Details -->
+                            <div class="form-step">
+                                <h3 class="mb-4">Basic Details</h3>
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label">Firstname</label>
+                                    <input type="text" id="firstName" class="form-control"
+                                        placeholder="Enter your firstname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">Lastname</label>
+                                    <input type="text" id="lastName" class="form-control" placeholder="Enter your lastname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" id="email" class="form-control"
+                                        placeholder="Enter your email address">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phoneNumber" class="form-control" placeholder="081234 56789">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="notes" class="form-label">Note</label>
+                                    <textarea id="notes" class="form-control" rows="3"
+                                        placeholder="Enter note details"></textarea>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4 border-top">
+                                    <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
+                                    <button type="button" class="btn btn-primary next-btn">Next: Summary</button>
+                                </div>
+                            </div>
+    
+                            <!-- Step 4: Summary -->
+                            <div class="form-step text-center">
+                                <h3 class="mb-2">Summary</h3>
+                                <p class="text-muted">Your appointment booking summary</p>
+    
+                                <div class="mt-4">
+                                    <div class="row">
+                                        <div class="col-6 text-start">
+                                            <p class="mb-1"><strong>Customer</strong></p>
+                                            <p class="mb-1"><strong>Service</strong></p>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <p class="mb-1">Your Madam ji</p>
+                                            <p class="mb-1">Bridal Look</p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-6 text-start">
+                                            <p class="mb-1"><strong>Date & Time</strong></p>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <p class="mb-1">01 January 2025, 8:00 PM - 9:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="d-flex justify-content-between mt-4 border-top pt-3">
+                                    <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
+                                    <button type="submit" class="btn btn-success">Confirm Booking</button>
+                                </div>
+                            </div>
+    
+                        </form>
                     </div>
                 </div>
-
-                <div class="col-md-9 mb-2">
-                    <!-- Appointment Form -->
-                    <form id="appointmentForm" class="appointmentForm">
-                        <!-- Step 1: Select Service -->
-                        <div class="form-step active">
-                            <h3 class="mb-4">Select Service</h3>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="card p-3 border service-card" data-service="Bridal Look">
-                                        <h5>Bridal Look</h5>
-                                        <p>Duration: 2 h</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="card p-3 border service-card" data-service="Non-Bridal Look">
-                                        <h5>Non-Bridal Look</h5>
-                                        <p>Duration: 1 h</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-end mt-4 border-top">
-                                <button type="button" class="btn btn-primary next-btn" disabled>Next: Date &
-                                    Time</button>
-                            </div>
-                        </div>
-
-
-                        <!-- Step 2: Date & Time -->
-                        <div class="form-step">
-                            <h3 class="mb-4">Select Date & Time</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <h5>Select Date</h5>
-                                        <div id="calendar" class="calendar-container"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div>
-                                        <h5>Time Slots</h5>
-                                        <button type="button" class="btn btn-outline-secondary me-2">8:00 PM - 9:00
-                                            PM</button>
-                                        <button type="button" class="btn btn-outline-secondary">9:00 PM - 10:00
-                                            PM</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="d-flex justify-content-between mt-4 border-top">
-                                <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
-                                <button type="button" class="btn btn-primary next-btn">Next: Basic Details</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Basic Details -->
-                        <div class="form-step">
-                            <h3 class="mb-4">Basic Details</h3>
-                            <div class="mb-3">
-                                <label for="firstName" class="form-label">Firstname</label>
-                                <input type="text" id="firstName" class="form-control"
-                                    placeholder="Enter your firstname">
-                            </div>
-                            <div class="mb-3">
-                                <label for="lastName" class="form-label">Lastname</label>
-                                <input type="text" id="lastName" class="form-control" placeholder="Enter your lastname">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" id="email" class="form-control"
-                                    placeholder="Enter your email address">
-                            </div>
-                            <div class="mb-3">
-                                <label for="phoneNumber" class="form-label">Phone Number</label>
-                                <input type="tel" id="phoneNumber" class="form-control" placeholder="081234 56789">
-                            </div>
-                            <div class="mb-3">
-                                <label for="notes" class="form-label">Note</label>
-                                <textarea id="notes" class="form-control" rows="3"
-                                    placeholder="Enter note details"></textarea>
-                            </div>
-                            <div class="d-flex justify-content-between mt-4 border-top">
-                                <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
-                                <button type="button" class="btn btn-primary next-btn">Next: Summary</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Summary -->
-                        <div class="form-step text-center">
-                            <h3 class="mb-2">Summary</h3>
-                            <p class="text-muted">Your appointment booking summary</p>
-
-                            <div class="mt-4">
-                                <div class="row">
-                                    <div class="col-6 text-start">
-                                        <p class="mb-1"><strong>Customer</strong></p>
-                                        <p class="mb-1"><strong>Service</strong></p>
-                                    </div>
-                                    <div class="col-6 text-end">
-                                        <p class="mb-1">Your Madam ji</p>
-                                        <p class="mb-1">Bridal Look</p>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-6 text-start">
-                                        <p class="mb-1"><strong>Date & Time</strong></p>
-                                    </div>
-                                    <div class="col-6 text-end">
-                                        <p class="mb-1">01 January 2025, 8:00 PM - 9:00 PM</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-between mt-4 border-top pt-3">
-                                <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
-                                <button type="submit" class="btn btn-success">Confirm Booking</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
 
 
 

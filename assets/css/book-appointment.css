@@ -8,6 +8,9 @@
     padding: 1rem;
     border-radius: 4px;
 }
+.form-step.active .row{
+    min-height: 30vh;
+}
 
 .hidden {
     display: none !important;
