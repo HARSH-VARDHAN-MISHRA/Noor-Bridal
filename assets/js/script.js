@@ -13,63 +13,164 @@ toogleMenuBtn.addEventListener("click",()=>{
 })
 
 
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
+//     const steps = document.querySelectorAll(".form-step");
+//     const stepItems = document.querySelectorAll(".step-item");
+//     const nextBtns = document.querySelectorAll(".next-btn");
+//     const prevBtns = document.querySelectorAll(".prev-btn");
+
+//     let currentStep = 0;
+
+//     function showStep(step) {
+//         steps.forEach((stepDiv, index) => {
+//             stepDiv.classList.toggle("active", index === step);
+//             stepDiv.classList.toggle("hidden", index !== step);
+//         });
+//         stepItems.forEach((item, index) => {
+//             item.classList.toggle("active", index === step);
+//         });
+//     }
+
+//     nextBtns.forEach((btn) => {
+//         btn.addEventListener("click", () => {
+//             currentStep++;
+//             showStep(currentStep);
+//         });
+//     });
+
+//     prevBtns.forEach((btn) => {
+//         btn.addEventListener("click", () => {
+//             currentStep--;
+//             showStep(currentStep);
+//         });
+//     });
+
+//     stepItems.forEach((item, index) => {
+//         item.addEventListener("click", () => {
+//             currentStep = index;
+//             showStep(currentStep);
+//         });
+//     });
+
+//     showStep(currentStep); // Initialize the first step as active
+// });
+
+
+// document.querySelectorAll('.service-card').forEach(card => {
+//     card.addEventListener('click', function () {
+//         // Remove 'selected' class from all cards
+//         document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+        
+//         // Add 'selected' class to the clicked card
+//         this.classList.add('selected');
+        
+//         // Enable the "Next" button
+//         const nextBtn = document.querySelector('.next-btn');
+//         nextBtn.disabled = false;
+
+//         // Optionally, store the selected service value
+//         const selectedService = this.getAttribute('data-service');
+//         console.log(`Selected Service: ${selectedService}`);
+//     });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
     const steps = document.querySelectorAll(".form-step");
     const stepItems = document.querySelectorAll(".step-item");
-    const nextBtns = document.querySelectorAll(".next-btn");
-    const prevBtns = document.querySelectorAll(".prev-btn");
+    const serviceCards = document.querySelectorAll(".service-card");
+    const timeSlots = document.querySelectorAll(".time-slot");
+    const appointmentDate = document.querySelector(".calendar-container");
+    const prevButtons = document.querySelectorAll(".prev-btn");
+    const nextButtons = document.querySelectorAll(".next-btn");
 
     let currentStep = 0;
+    let appointmentData = {
+        service: "",
+        date: "",
+        time: "",
+        firstName: "",
+        mobile: "",
+        email: "",
+    };
 
-    function showStep(step) {
-        steps.forEach((stepDiv, index) => {
-            stepDiv.classList.toggle("active", index === step);
-            stepDiv.classList.toggle("hidden", index !== step);
+    const updateSteps = () => {
+        steps.forEach((step, index) => {
+            step.classList.toggle("active", index === currentStep);
         });
-        stepItems.forEach((item, index) => {
-            item.classList.toggle("active", index === step);
-        });
-    }
+    };
 
-    nextBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
+    // Handle "Go Back"
+    prevButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateSteps();
+            }
+        });
+    });
+
+    // Handle "Next"
+    nextButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            if (currentStep < steps.length - 1) {
+                if (currentStep === 1) {
+                    // Validation for Date & Time
+                    if (!appointmentData.date || !appointmentData.time) {
+                        alert("Please select a date and time.");
+                        return;
+                    }
+                }
+                currentStep++;
+                updateSteps();
+            }
+        });
+    });
+
+    // Service selection
+    serviceCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            serviceCards.forEach((c) => c.classList.remove("selected"));
+            card.classList.add("selected");
+            appointmentData.service = card.dataset.service;
             currentStep++;
-            showStep(currentStep);
+            updateSteps();
         });
     });
 
-    prevBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            currentStep--;
-            showStep(currentStep);
+    // Date selection
+    appointmentDate.addEventListener("change", (e) => {
+        appointmentData.date = e.target.value;
+        console.log("Selected Dateee:", appointmentData.date); // Log selected date
+    });
+
+    timeSlots.forEach((slot) => {
+        slot.addEventListener("click", () => {
+            // Clear active state for all time slots
+            timeSlots.forEach((s) => s.classList.remove("active"));
+            // Set active state for clicked slot
+            slot.classList.add("active");
+            // Update appointment data
+            appointmentData.time = slot.textContent.trim();
+            console.log("Selected Time Slot:", appointmentData.time); // Log selected time slot
         });
     });
 
-    stepItems.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            currentStep = index;
-            showStep(currentStep);
-        });
+
+
+    // Basic details
+    appointmentForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        appointmentData.firstName = document.getElementById("firstName").value;
+        appointmentData.lastName = document.getElementById("lastName").value;
+        appointmentData.email = document.getElementById("email").value;
+        appointmentData.phoneNumber = document.getElementById("phoneNumber").value;
+        appointmentData.notes = document.getElementById("notes").value;
+
+        console.log("Appointment Data:", appointmentData);
+        alert("Booking Confirmed!");
     });
 
-    showStep(currentStep); // Initialize the first step as active
-});
 
 
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('click', function () {
-        // Remove 'selected' class from all cards
-        document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
-        
-        // Add 'selected' class to the clicked card
-        this.classList.add('selected');
-        
-        // Enable the "Next" button
-        const nextBtn = document.querySelector('.next-btn');
-        nextBtn.disabled = false;
-
-        // Optionally, store the selected service value
-        const selectedService = this.getAttribute('data-service');
-        console.log(`Selected Service: ${selectedService}`);
-    });
 });

@@ -11,7 +11,10 @@
 .form-step.active .row{
     min-height: 30vh;
 }
-
+.time-slot.active {
+    background-color: #007bff;
+    color: #fff;
+}
 .hidden {
     display: none !important;
 }

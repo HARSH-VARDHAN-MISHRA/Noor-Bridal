@@ -152,41 +152,41 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <h5>Select Date</h5>
-                                            <div id="calendar" class="calendar-container"></div>
+                                            <div id="calendar" class="calendar-container"  required></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div>
+                                        <div >
                                             <h5>Time Slots</h5>
 
                                             <div class="single-slot">
                                                 <h6 class="strong">Morning</h6>
                                                 <div class="timing">
-                                                    <button type="button" class="btn btn-outline-secondary">11:00 AM - 12:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">11:00 AM - 12:00  PM</button>
                                                 </div>
                                             </div>
                                             <div class="single-slot">
                                                 <h6 class="strong">Afternoon</h6>
                                                 <div class="timing">
-                                                    <button type="button" class="btn btn-outline-secondary">12:00 PM - 1:00  PM</button>
-                                                    <button type="button" class="btn btn-outline-secondary">1:00 PM - 2:00  PM</button>
-                                                    <button type="button" class="btn btn-outline-secondary">2:00 PM - 3:00  PM</button>
-                                                    <button type="button" class="btn btn-outline-secondary">3:00 PM - 4:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">12:00 PM - 1:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">1:00 PM - 2:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">2:00 PM - 3:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">3:00 PM - 4:00  PM</button>
                                                 </div>
                                             </div>
                                             <div class="single-slot">
                                                 <h6 class="strong">Evening</h6>
                                                 <div class="timing">
-                                                    <button type="button" class="btn btn-outline-secondary">4:00 PM - 5:00  PM</button>
-                                                    <button type="button" class="btn btn-outline-secondary">5:00 PM - 6:00  PM</button>
-                                                    <button type="button" class="btn btn-outline-secondary">6:00 PM - 7:00  PM</button>
-                                                    <button type="button" class="btn btn-outline-secondary">7:00 PM - 8:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">4:00 PM - 5:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">5:00 PM - 6:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">6:00 PM - 7:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">7:00 PM - 8:00  PM</button>
                                                 </div>
                                             </div>
                                             <div class="single-slot">
                                                 <h6 class="strong">Night</h6>
                                                 <div class="timing">
-                                                    <button type="button" class="btn btn-outline-secondary">8:00 PM - 9:00  PM</button>
+                                                    <button type="button" class="btn btn-outline-secondary time-slot">8:00 PM - 9:00  PM</button>
                                                 </div>
                                             </div>
 
@@ -237,7 +237,10 @@
                             <!-- Step 4: Summary -->
                             <div class="form-step text-center">
                                 <h3 class="mb-2">Summary</h3>
-                                <p class="text-muted">Your appointment booking summary</p>
+
+                                <div id="summaryContent"></div>
+
+                                <!-- <p class="text-muted">Your appointment booking summary</p>
     
                                 <div class="mt-4">
                                     <div class="row">
@@ -258,7 +261,7 @@
                                             <p class="mb-1">01 January 2025, 8:00 PM - 9:00 PM</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
     
                                 <div class="d-flex justify-content-between mt-4 border-top pt-3">
                                     <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
