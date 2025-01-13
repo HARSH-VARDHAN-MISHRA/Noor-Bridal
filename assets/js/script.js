@@ -83,14 +83,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButtons = document.querySelectorAll(".prev-btn");
     const nextButtons = document.querySelectorAll(".next-btn");
 
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().split('T')[0];
+
+        // Set the default value of the date input to today's date
+        appointmentDate.value = today;
+    
+
     let currentStep = 0;
     let appointmentData = {
         service: "",
-        date: "",
+        date: today,
         time: "",
-        firstName: "",
-        mobile: "",
-        email: "",
+        firstName : "",
+        lastName : "",
+        email : "",
+        phoneNumber : "",
+        notes : "",
     };
 
     const updateSteps = () => {
@@ -119,6 +128,12 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             if (currentStep < steps.length - 1) {
                 if (currentStep === 1) {
+
+                    console.log("appointmentData.dateee : ",appointmentData.date)
+
+
+
+
                     // Validation for Date & Time
                     if (!appointmentData.date || !appointmentData.time) {
                         alert("Please select a date and time.");
@@ -142,11 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Get today's date in YYYY-MM-DD format
-    const today = new Date().toISOString().split('T')[0];
-
-    // Set the default value of the date input to today's date
-    appointmentDate.value = today;
 
     // Date selection
     appointmentDate.addEventListener("change", (e) => {
@@ -193,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p class="mb-1"><strong>Service</strong></p>
             </div>
             <div class="col-6 text-end">
-                <p class="mb-1">${appointmentData.firstName} ${appointmentData?.lastName}</p>
+                <p class="mb-1">${appointmentData.firstName} ${appointmentData.lastName}</p>
                 <p class="mb-1">${appointmentData.service}</p>
             </div>
         </div>
