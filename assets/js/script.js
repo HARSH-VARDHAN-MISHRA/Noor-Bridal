@@ -304,25 +304,52 @@ document.addEventListener("DOMContentLoaded", () => {
             serviceCards.forEach((c) => c.classList.remove("selected"));
             card.classList.add("selected");
             appointmentData.service = card.dataset.service;
+    
             validateStep();
+    
+            // Automatically navigate to the next step
+            const nextButton = steps[currentStep].querySelector(".next-btn");
+            if (nextButton && !nextButton.disabled) {
+                nextButton.click();
+            }
         });
     });
+    
 
 
     // Date selection
     appointmentDate.addEventListener("change", (e) => {
         appointmentData.date = e.target.value;
-        console.log("Selected Dateee:", appointmentData.date); // Log selected date
+    
+        validateStep();
+    
+        // Check if both date and time are selected
+        if (appointmentData.date && appointmentData.time) {
+            const nextButton = steps[currentStep].querySelector(".next-btn");
+            if (nextButton && !nextButton.disabled) {
+                nextButton.click();
+            }
+        }
     });
-
+    
     timeSlots.forEach((slot) => {
         slot.addEventListener("click", () => {
             timeSlots.forEach((s) => s.classList.remove("active"));
             slot.classList.add("active");
             appointmentData.time = slot.textContent.trim();
+    
             validateStep();
+    
+            // Check if both date and time are selected
+            if (appointmentData.date && appointmentData.time) {
+                const nextButton = steps[currentStep].querySelector(".next-btn");
+                if (nextButton && !nextButton.disabled) {
+                    nextButton.click();
+                }
+            }
         });
     });
+    
 
     document.getElementById("firstName").addEventListener("input", validateStep);
     document.getElementById("lastName").addEventListener("input", validateStep);
