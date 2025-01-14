@@ -175,6 +175,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
+    document.getElementById("firstName").addEventListener("input", (e) => {
+        appointmentData.firstName = e.target.value.trim();
+        validateStep();
+    });
+    
+    document.getElementById("lastName").addEventListener("input", (e) => {
+        appointmentData.lastName = e.target.value.trim();
+        validateStep();
+    });
+    
 
     document.getElementById("firstName").addEventListener("input", validateStep);
     document.getElementById("lastName").addEventListener("input", validateStep);
