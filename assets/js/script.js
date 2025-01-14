@@ -225,10 +225,21 @@ document.addEventListener("DOMContentLoaded", () => {
         appointmentData.email = document.getElementById("email").value;
         appointmentData.phoneNumber = document.getElementById("phoneNumber").value;
         appointmentData.notes = document.getElementById("notes").value;
-
+    
         console.log("Appointment Data:", appointmentData);
-        alert("Booking Confirmed!");
+    
+        // Display a SweetAlert2 toast
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: 'Booking Confirmed!',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        });
     });
+    
 
     stepItems.forEach((item) => {
         item.addEventListener("click", () => {
@@ -241,7 +252,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentStep = stepIndex; // Navigate to the selected step
                 updateSteps(); // Update UI for the steps
             } else {
-                alert("Please complete the required fields in the earlier steps before proceeding.");
+                 // Display a SweetAlert2 toast for invalid steps
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'warning',
+                title: 'Please complete the required fields in the earlier steps before proceeding.',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
             }
         });
     });
