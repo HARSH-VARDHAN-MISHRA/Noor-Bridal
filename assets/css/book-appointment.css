@@ -53,6 +53,10 @@
 .appointmentForm-section .form-label{
     color: #0e0e0e;
 }
+.appointmentForm-section .form-control{
+    color: #212529 !important;
+}
+
 .appointmentForm-section .single-slot{
     margin-bottom: 1rem;
 }
