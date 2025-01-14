@@ -1,3 +1,11 @@
+.step-item.disabled {
+    color: #ccc; 
+    cursor: not-allowed; 
+    pointer-events: none; 
+}
+
+
+
 .form-step {
     display: none;
 }

@@ -248,36 +248,39 @@ document.addEventListener("DOMContentLoaded", () => {
         steps.forEach((step, index) => {
             step.classList.toggle("active", index === currentStep);
         });
-
+    
         stepItems.forEach((item, index) => {
             item.classList.toggle("active", index <= currentStep);
         });
-
+    
         if (currentStep === steps.length - 1) {
-                        updateSummary();
-                    }
-
-        validateStep();
+            updateSummary(); // Update the summary content
+        }
+    
+        validateStep(); // Validate the current step
     };
-
+    
+    
+    
     const validateStep = () => {
+        const currentStepElement = steps[currentStep];
+        const nextButton = currentStepElement.querySelector(".next-btn");
+    
         if (currentStep === 0) {
-            const nextButton = steps[currentStep].querySelector(".next-btn");
             nextButton.disabled = !appointmentData.service;
         } else if (currentStep === 1) {
-            const nextButton = steps[currentStep].querySelector(".next-btn");
             nextButton.disabled = !appointmentData.date || !appointmentData.time;
         } else if (currentStep === 2) {
-            const nextButton = steps[currentStep].querySelector(".next-btn");
             const firstName = document.getElementById("firstName").value.trim();
             const lastName = document.getElementById("lastName").value.trim();
             const email = document.getElementById("email").value.trim();
             const phoneNumber = document.getElementById("phoneNumber").value.trim();
-
             nextButton.disabled = !(firstName && email && phoneNumber);
+        } else if (currentStep === 3) {
+            nextButton.disabled = false; // Summary step, no validation required
         }
     };
-
+    
     prevButtons.forEach((button) => {
         button.addEventListener("click", () => {
             if (currentStep > 0) {
@@ -368,18 +371,42 @@ document.addEventListener("DOMContentLoaded", () => {
     stepItems.forEach((item) => {
         item.addEventListener("click", () => {
             const stepIndex = parseInt(item.dataset.step);
-            
-            // Allow navigation only if the step is already completed or is the current step
-            if (stepIndex <= currentStep) {
-                if (validateCurrentStep(stepIndex)) {
-                    currentStep = stepIndex;
-                    updateSteps();
-                }
+    
+            // Check if all previous steps are valid
+            const isValid = validateAllStepsUpTo(stepIndex);
+    
+            if (isValid) {
+                currentStep = stepIndex; // Navigate to the selected step
+                updateSteps(); // Update UI for the steps
+            } else {
+                alert("Please complete the required fields in the earlier steps before proceeding.");
             }
         });
     });
-
-
+    
+    
+    // Disable steps that are not yet accessible
+    const updateSidebarAccessibility = () => {
+        stepItems.forEach((item, index) => {
+            if (index <= currentStep) {
+                item.classList.remove("disabled");
+                item.style.pointerEvents = "auto"; // Enable clicks
+            } else {
+                item.classList.add("disabled");
+                item.style.pointerEvents = "none"; // Disable clicks
+            }
+        });
+    };
+    
+    const validateAllStepsUpTo = (stepIndex) => {
+        for (let i = 0; i < stepIndex; i++) {
+            if (!validateCurrentStep(i)) {
+                return false; // If any step is invalid, return false
+            }
+        }
+        return true;
+    };
+    
     const validateCurrentStep = (stepIndex) => {
         if (stepIndex === 0) {
             return !!appointmentData.service; // Service must be selected
@@ -395,6 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return false;
     };
+    
 
     updateSteps();
 });
