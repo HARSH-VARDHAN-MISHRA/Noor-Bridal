@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Noor Bridal</title>
+    <title>Contact Us - Navya Collection</title>
     <meta property="og:image" content="./assets/images/logo.png">
     <meta name="author" content="">
     <meta name="email" content="">
@@ -35,6 +35,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -99,8 +100,8 @@
                             <input type="text" class="form-control" id="yourname" placeholder="Enter your name">
                         </div>
                         <div class="col-md-12 mt-3">
-                            <label for="youremail" class="form-label">Your Email</label>
-                            <input type="email" class="form-control" id="youremail" placeholder="Enter your email">
+                            <label for="yourphone" class="form-label">Your Phone</label>
+                            <input type="email" class="form-control" id="yourphone" placeholder="Enter your phone">
                         </div>
                         <div class="col-md-12 mt-3">
                             <label for="subject" class="form-label">Subject</label>
@@ -112,7 +113,7 @@
                                 placeholder="Enter your message"></textarea>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" class="btn-main">Send Message</button>
+                            <button type="button" class="btn-main" id="form_button">Send Message</button>
                         </div>
                     </form>
 
@@ -178,17 +179,17 @@
         <div class="container">
             <div class="row">
                 <!-- Logo and Description Section -->
-                <div class="col-md-3 footer-section mb-4 mb-md-0">
-                    <h1>Noor Bridal</h1>
+                <div class="col-md-4 footer-section mb-4 mb-md-0">
+                    <h1>Navya Collection</h1>
                     <!-- <img src="./assets/images/logo.png" alt="LOGO" class="footer-logo mb-3 w-50"> -->
                     <p class="small">
-                        At Noor Bridal, we understand that every woman deserves to feel like royalty on her special occasions.
+                        At Navya Collection, we understand that every woman deserves to feel like royalty on her special occasions.
                         That’s why we meticulously design each lehenga with utmost care and attention to detail, using luxurious
                         fabrics, intricate embroidery, and stunning embellishments.
                     </p>
                 </div>
                 <!-- Quick Links Section -->
-                <div class="col-md-3 footer-section mb-4 mb-md-0">
+                <div class="col-md-4 footer-section mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Quick Links</h4>
                     <ul class="list-unstyled">
                         <li><a href="./index.html" class="text-light text-decoration-none">Home</a></li>
@@ -199,7 +200,7 @@
                     </ul>
                 </div>
                 <!-- Recent Post Section -->
-                <div class="col-md-3 footer-section mb-4 mb-md-0">
+                <!-- <div class="col-md-3 footer-section mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Recent Posts</h4>
                     <ul class="list-unstyled">
                         <li><a href="./index.html" class="text-light text-decoration-none">Home</a></li>
@@ -208,9 +209,9 @@
                         <li><a href="./contact.html" class="text-light text-decoration-none">Contact Us</a></li>
                         <li><a href="./our-collection.html" class="text-light text-decoration-none">Our Collection</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- Social Media Section -->
-                <div class="col-md-3 footer-section">
+                <div class="col-md-4 footer-section">
                     <h4 class="text-uppercase mb-3">Connect with us</h4>
                     <div class="social-icons d-flex gap-3">
                         <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="fab fa-facebook-f"></i></a>
@@ -222,7 +223,7 @@
             </div>
             <!-- Footer Bottom Section -->
             <div class="footer-bottom text-center mt-4">
-                <p class="mb-0 small">&copy; Noor Bridal 2025 - Created By ER Bilal Ehemad</p>
+                <p class="mb-0 small">&copy; Navya Collection 2025 - Developed By <a href="https://execunetmedia.com">Execunet Media</a> </p>
             </div>
         </div>
     </footer>
@@ -234,6 +235,132 @@
         crossorigin="anonymous"></script>
 
     <script src="./assets/js/script.js"></script>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    let form_button = document.getElementById('form_button');
+    form_button.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Disable the button and show loader
+        form_button.setAttribute('disabled', 'true');
+        form_button.innerHTML = 'Sending... <span class="loader"></span>'; // Add a loading spinner or text
+
+        // Collect form data
+        let name = document.getElementById('yourname').value;
+        if (name == '' || name == null || !name || name.length < 3) {
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Please Provide valid Name',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+            // Re-enable button and clear loader
+            form_button.removeAttribute('disabled');
+            form_button.innerHTML = 'Send Message'; // Reset button text
+            return;
+        }
+
+        let phone = document.getElementById('yourphone').value;
+        if (phone == '' || phone == null || !phone || phone.length < 9) {
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Please Provide valid phone',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+            // Re-enable button and clear loader
+            form_button.removeAttribute('disabled');
+            form_button.innerHTML = 'Send Message'; // Reset button text
+            return;
+        }
+
+        let message = document.getElementById('message').value;
+        let subject = document.getElementById('subject').value;
+
+        // Ensure EmailJS is loaded
+        if (typeof emailjs === 'undefined') {
+            console.log('EmailJS SDK is not loaded');
+            // Re-enable button and clear loader
+            form_button.removeAttribute('disabled');
+            form_button.innerHTML = 'Send Message'; // Reset button text
+            return;
+        }
+
+        // Initialize EmailJS with your public key
+        emailjs.init('slFiVANAtoTxLhZnB');  // Replace this with your actual public key
+
+        let templateParams = {
+            from_customer: name,
+            to_company: 'Navya Collection',
+            from_name: name,
+            name: name,
+            phone: phone,
+            subject: subject,
+            message: message
+        };
+
+        // Send the email using EmailJS service
+        emailjs.send('service_soxgot9', 'template_zpbdyvf', templateParams)
+            .then((response) => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Thank You, we will contact you soon.',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+                
+                // Reload page after 3 seconds to reset the form and button
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000);
+            }, (error) => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Something went wrong, please try again.',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+
+                // Re-enable button and clear loader after failure
+                form_button.removeAttribute('disabled');
+                form_button.innerHTML = 'Send Message'; // Reset button text
+            });
+    });
+</script>
+
+<style>
+    .loader {
+        border: 3px solid #f3f3f3; /* Light gray */
+        border-top: 3px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
 </body>
 
 </html>

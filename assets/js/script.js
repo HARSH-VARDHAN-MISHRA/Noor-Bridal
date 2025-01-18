@@ -14,28 +14,38 @@ toogleMenuBtn.addEventListener("click", () => {
 
 
 
+
+// document.querySelector('.counter-section').addEventListener('mouseenter',(e)=>{
+
+//         const counters = document.querySelectorAll(".count");
+    
+//         counters.forEach(counter => {
+//             const target = +counter.getAttribute("data-target");
+//             const updateCounter = () => {
+//                 const current = +counter.innerText;
+//                 const increment = target / 200;
+    
+//                 if (current < target) {
+//                     counter.innerText = Math.ceil(current + increment);
+//                     setTimeout(updateCounter, 10);
+//                 } else {
+//                     counter.innerText = target;
+//                 }
+//             };
+    
+//             updateCounter();
+//         });
+
+// });
+
+
+
+
+
+
 // About us Counter
 
-document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".count");
 
-    counters.forEach(counter => {
-        const target = +counter.getAttribute("data-target");
-        const updateCounter = () => {
-            const current = +counter.innerText;
-            const increment = target / 200;
-
-            if (current < target) {
-                counter.innerText = Math.ceil(current + increment);
-                setTimeout(updateCounter, 10);
-            } else {
-                counter.innerText = target;
-            }
-        };
-
-        updateCounter();
-    });
-});
 
 
 
@@ -225,19 +235,56 @@ document.addEventListener("DOMContentLoaded", () => {
         appointmentData.email = document.getElementById("email").value;
         appointmentData.phoneNumber = document.getElementById("phoneNumber").value;
         appointmentData.notes = document.getElementById("notes").value;
-    
+        appointment_button=document.getElementById('appointment_button')
+        appointment_button.setAttribute('disabled', 'true');
+        appointment_button.innerHTML = 'Sending... <span class="loader"></span>';
+        
         console.log("Appointment Data:", appointmentData);
-    
-        // Display a SweetAlert2 toast
-        Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon: 'success',
-            title: 'Booking Confirmed!',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-        });
+        // send email
+        emailjs.init('slFiVANAtoTxLhZnB'); 
+        let templateParams = {
+            from_customer: appointmentData.firstName + " " + appointmentData.lastName,
+            to_company: 'Navya Collection',
+            first_name: appointmentData.firstName,
+            last_name: appointmentData.lastName,
+            phone: appointmentData.phoneNumber,
+            email: appointmentData.email,
+            note: appointmentData.notes,
+            service:appointmentData.service,
+            date: appointmentData.date,
+            shift: appointmentData.time
+        };
+        emailjs.send('service_soxgot9', 'template_3ewf3hj', templateParams)
+            .then((response) => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Thank You, we will contact you soon.',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+                
+                // Reload page after 3 seconds to reset the form and button
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000);
+            }, (error) => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Something went wrong, please try again.',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+
+                // Re-enable button and clear loader after failure
+                appointment_button.removeAttribute('disabled');
+                appointment_button.innerHTML = 'Confirm Booking'; // Reset button text
+            });
     });
     
 

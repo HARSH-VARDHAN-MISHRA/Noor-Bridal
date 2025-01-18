@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment - Noor Bridal</title>
+    <title>Book Appointment - Navya Collection</title>
     <meta property="og:image" content="./assets/images/logo.png">
     <meta name="author" content="">
     <meta name="email" content="">
@@ -227,7 +227,7 @@
                                 <div class="mb-3">
                                     <label for="notes" class="form-label">Note</label>
                                     <textarea id="notes" class="form-control" rows="3"
-                                        placeholder="Enter note details"></textarea>
+                                        placeholder="Leave a note"></textarea>
                                 </div>
                                 <div class="d-flex justify-content-between mt-4 border-top">
                                     <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
@@ -266,7 +266,7 @@
     
                                 <div class="d-flex justify-content-between mt-4 border-top pt-3">
                                     <button type="button" class="btn btn-secondary prev-btn">Go Back</button>
-                                    <button type="submit" class="btn btn-success">Confirm Booking</button>
+                                    <button type="submit" class="btn btn-success" id="appointment_button">Confirm Booking</button>
                                 </div>
                             </div>
     
@@ -284,11 +284,11 @@
         <div class="container">
             <div class="row">
                 <!-- Logo and Description Section -->
-                <div class="col-md-3 footer-section mb-4 mb-md-0">
-                    <h1>Noor Bridal</h1>
+                <div class="col-md-4 footer-section mb-4 mb-md-0">
+                    <h1>Navya Collection</h1>
                     <!-- <img src="./assets/images/logo.png" alt="LOGO" class="footer-logo mb-3 w-50"> -->
                     <p class="small">
-                        At Noor Bridal, we understand that every woman deserves to feel like royalty on her special
+                        At Navya Collection, we understand that every woman deserves to feel like royalty on her special
                         occasions.
                         That’s why we meticulously design each lehenga with utmost care and attention to detail, using
                         luxurious
@@ -296,7 +296,7 @@
                     </p>
                 </div>
                 <!-- Quick Links Section -->
-                <div class="col-md-3 footer-section mb-4 mb-md-0">
+                <div class="col-md-4 footer-section mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Quick Links</h4>
                     <ul class="list-unstyled">
                         <li><a href="./index.html" class="text-light text-decoration-none">Home</a></li>
@@ -309,7 +309,7 @@
                     </ul>
                 </div>
                 <!-- Recent Post Section -->
-                <div class="col-md-3 footer-section mb-4 mb-md-0">
+                <!-- <div class="col-md-3 footer-section mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Recent Posts</h4>
                     <ul class="list-unstyled">
                         <li><a href="./index.html" class="text-light text-decoration-none">Home</a></li>
@@ -320,9 +320,9 @@
                         <li><a href="./our-collection.html" class="text-light text-decoration-none">Our Collection</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- Social Media Section -->
-                <div class="col-md-3 footer-section">
+                <div class="col-md-4 footer-section">
                     <h4 class="text-uppercase mb-3">Connect with us</h4>
                     <div class="social-icons d-flex gap-3">
                         <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i
@@ -338,7 +338,7 @@
             </div>
             <!-- Footer Bottom Section -->
             <div class="footer-bottom text-center mt-4">
-                <p class="mb-0 small">&copy; Noor Bridal 2025 - Created By ER Bilal Ehemad</p>
+                <p class="mb-0 small">&copy; Navya Collection 2025 - Developed By <a href="https://execunetmedia.com">Execunet Media</a> </p>
             </div>
         </div>
     </footer>
@@ -368,9 +368,27 @@
         });
     </script>
 
+<script type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script src="./assets/js/script.js"></script>
+<style>
+    .loader {
+        border: 3px solid #f3f3f3; /* Light gray */
+        border-top: 3px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        margin-left: 10px;
+    }
 
-
-    <script src="./assets/js/script.js"></script>
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
 </body>
 
 </html>

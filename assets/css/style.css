@@ -32,6 +32,9 @@ a {
     color: white;
     text-decoration: none;
 }
+a:hover{
+    color: inherit;
+}
 
 p {
     color: var(--color-para);
@@ -88,6 +91,10 @@ h6 {
     border-radius: 5px;
     margin: 1rem 0rem;
     border: none;
+    transition: all 0.3s ease;
+}
+.btn-main:hover{
+    scale: 0.95;
 }
 
 .form-control {
